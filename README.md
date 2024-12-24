@@ -4,6 +4,8 @@ IAssistant is a demo project to start with a customizable AI voice assistant. It
 
 IAssistant is meant for linux, Windows and Mac stuff has been striped out, remote AI clients have been removed as well to prefer opensource local tools but hence requires a GPU with sufficient VRAM to allow for small latency.
 
+**Disclaimer:** This project is a starter project, currently under construction. It provides basic logic and simple use cases, far from perfect and subject to occasional bugs. Have you ever received an awkward answer from an LLM due to a messy prompt? Imagine when your assistant speaks it out loud! While it’s a fun and half-functional demonstration, it’s still a work in progress—designed to explore possibilities, not polished for production by any means. Use with curiosity and a pinch of patience! 😅 
+
 ## Features
 
 - **Clipboard Integration**: Leverages clipboard content for completing tasks based on user requests.
