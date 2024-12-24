@@ -2,7 +2,7 @@
 
 IAssistant is a demo project to start with a customizable AI voice assistant. It is build by adapting the core functionalities of the [AlwaysReddy](https://github.com/ILikeAI/AlwaysReddy) project. AlwaysReddy is designed for multi-OS environments, with a couple of clients to choose from, it simplifies a variety of tasks through speech and text-based interaction, featuring enhanced extensibility and user-friendly controls via a terminal based app with hotkeys controls. 
 
-IAssistant is meant for linux, Windows and Mac stuff has been striped out, remote AI clients have been removed as well to prefer opensource local tools.
+IAssistant is meant for linux, Windows and Mac stuff has been striped out, remote AI clients have been removed as well to prefer opensource local tools but hence requires a GPU with sufficient VRAM to allow for small latency.
 
 ## Features
 
