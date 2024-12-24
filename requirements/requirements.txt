@@ -1,0 +1,25 @@
+anthropic
+clipboard
+groq
+keyboard
+numpy
+openai
+pyautogui
+pydub
+python-dotenv
+pynput
+sounddevice
+soundfile
+tiktoken
+requests
+PyAudio # requires portaudio19-dev 
+pillow
+ahk
+ollama
+transformers
+torch
+ctranslate2==4.4.0
+PyGObject
+
+#ahk ; sys_platform == 'win32'
+#ahk[binary] ; sys_platform == 'win32'

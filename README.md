@@ -38,6 +38,11 @@ Ensure your environment is set up for Python-based AI development tasks. Then, f
    ./run_IAssistant.sh
    ```
 
+# install voices
+
+A default english voice is present in the repo `piper_tss/voices/voice_en_1/`, download other voices [here](https://rhasspy.github.io/piper-samples/), place them in `piper_tss/voices/` and update `voice_list` in `main.py`. 
+
+
 ## TODO
 
 - [x] update system prompts
@@ -55,5 +60,6 @@ Ensure your environment is set up for Python-based AI development tasks. Then, f
 - [Faster Whisper](https://github.com/SYSTRAN/faster-whisper)
 - [Piper: Neural Text-to-Speech](https://github.com/rhasspy/piper/tree/master)
 - [The Python GTK+ 3 Tutorial](https://python-gtk-3-tutorial.readthedocs.io/)
+- [Need to logo for your app? Check out this huggingface space](https://huggingface.co/spaces/fantaxy/ofai-flx-logo) Prompt: [Style: Minimalist] [Color: black and White] [Concept: AI] [Text: 'IA'] [Background: circular vortex]
 
 
