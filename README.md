@@ -46,6 +46,7 @@ A default english voice is present in the repo `piper_tss/voices/voice_en_1/`, d
 ## TODO
 
 - [x] update system prompts
+- [ ] allow for the use of uv instead of virtualenv
 - [ ] add specific use cases
 - [ ] keep up cleaning up the repo!
 - [ ] **Vision Model Integration**: Enable handling of images copied to the clipboard for document-related queries.
