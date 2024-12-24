@@ -32,7 +32,7 @@ class TTSManager:
 
         ## NOTE: For now all TTS services need to return wav files.
         
-        print(self.voice)
+        # print(self.voice)
         
         if self.service == "piper":
             from TTS_apis.piper_tts_client import PiperTTSClient
@@ -146,7 +146,7 @@ class TTSManager:
                     print(f"Playing audio: {sentence}")
                 # Load the audio file using wave
                 with wave.open(file_path, 'rb') as audio_file:
-                    print(volume)
+                    # print(volume)
                     # Create a PyAudio instance
                     p = pyaudio.PyAudio()
 

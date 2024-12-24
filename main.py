@@ -30,14 +30,18 @@ IA.init_tts()
 volume = 0.5
 
 model_list = ["llama3.2:3b"]
-prompt_list = ["default_prompt_en", "default_prompt_fr"]
-voice_list = ["voice_en_1", "voice_en_2", "voice_fr_1", "voice_fr_2"]
+prompt_list = ["default_prompt", "default_prompt_fr"]
+voice_list = ["voice_en_1", "voice_fr_1"]
 transcriber_list = ["TransformersWhisper", "FasterWhisper"]
 transcriber_model_list = [
-    "tiny.en",
-    "Philogicae/whisper-large-v3-french-ct2",
-    "ammaraldirawi/faster-whisper-small-fr-int8",
+    "openai/whisper-large-v3-turbo"
 ]
+# transcriber_model_list = [
+#     "openai/whisper-large-v3-turbo"
+#     "tiny.en",
+#     "Philogicae/whisper-large-v3-french-ct2",
+#     "ammaraldirawi/faster-whisper-small-fr-int8",
+# ]
 
 
 class IAssistantWindow(Gtk.Window):
@@ -200,11 +204,18 @@ class IAssistantWindow(Gtk.Window):
     def get_response(self):
         filename = "temp_recording.wav"
         transcript = IA.transcriber.transcribe_audio(filename)
+        # transcript = "Please give me the command to install the python package 'transformers', copy the command in the clipboard."
         IA.set_prompt(transcript)
         response = IA.get_completion()
         print(response)
-        IA.tts.run_tts(response, volume)
-
+        formatted_response = IA.postprocess_response(response)
+        if formatted_response['spoken']:
+            IA.tts.run_tts(formatted_response['spoken'], volume)
+        else:    
+            IA.tts.run_tts("No response to speak out loud", volume)
+        if formatted_response['clipboard']:
+            clipboard.copy(formatted_response['clipboard'])
+            
     def on_record_button_clicked(self, button):
         if "green-button" in button.get_style_context().list_classes():
             button.get_style_context().remove_class("green-button")

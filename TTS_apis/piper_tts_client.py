@@ -24,7 +24,7 @@ class PiperTTSClient:
         """
         
         voice_folder=self.voice
-        print(voice_folder)
+        # print(voice_folder)
         # Sanitize the text to be spoken
         text_to_speak = utils.sanitize_text(text_to_speak)
 

@@ -6,9 +6,10 @@ from transformers import WhisperProcessor, WhisperForConditionalGeneration
 from config_loader import config
 
 class TransformersWhisperClient:
-    def __init__(self, verbose=config.VERBOSE):
+    def __init__(self, language="en",verbose=config.VERBOSE):
         self.processor = WhisperProcessor.from_pretrained(config.WHISPER_MODEL)
         self.model = WhisperForConditionalGeneration.from_pretrained(config.WHISPER_MODEL,device_map="auto")
+        self.language = language
         self.verbose = verbose
 
     def transcribe_audio_file(self, file_path):
@@ -29,7 +30,7 @@ class TransformersWhisperClient:
 
             # Generate token IDs
             with torch.no_grad():
-                predicted_ids = self.model.generate(input_features,language='fr')
+                predicted_ids = self.model.generate(input_features,language=self.language)
 
             # Decode the token IDs to text
             transcription = self.processor.batch_decode(predicted_ids, skip_special_tokens=True)

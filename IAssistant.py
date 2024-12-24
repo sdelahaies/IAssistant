@@ -13,6 +13,7 @@ import prompt as prompt
 from pprint import pprint
 import json
 from datetime import datetime
+import re
 
 
 class IAssistant:
@@ -70,6 +71,25 @@ class IAssistant:
         response = chat(model=self.model, messages=self.messages)
         self.messages.append({"role": "user", "content": response.message.content})
         return response.message.content
+
+    import re
+
+    def postprocess_response(self,response):
+        """
+        Extracts the text within <spoken> and <clipboard> tags from the LLM response.
+        Parameters:
+            response (str): The LLM response containing <spoken> and <clipboard> tags.
+        Returns:
+            dict: A dictionary with keys 'spoken' and 'clipboard' containing the extracted text.
+        """
+        spoken_match = re.search(r"<spoken>(.*?)</spoken>", response, re.DOTALL)
+        clipboard_match = re.search(
+            r"<clipboard>(.*?)</clipboard>", response, re.DOTALL
+        )
+        return {
+            "spoken": spoken_match.group(1).strip() if spoken_match else None,
+            "clipboard": clipboard_match.group(1).strip() if clipboard_match else None,
+        }
 
     def export(self):
         return {"messages": self.messages}
